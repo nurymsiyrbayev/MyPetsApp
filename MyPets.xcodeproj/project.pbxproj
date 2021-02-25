@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07DC000025E7F2BE0051FFA9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DCFFFF25E7F2BE0051FFA9 /* MapKit.framework */; };
+		07DC000525E7FEDE0051FFA9 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DC000325E7FEDE0051FFA9 /* PetsCollectionViewCell.swift */; };
+		07DC000625E7FEDE0051FFA9 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07DC000425E7FEDE0051FFA9 /* PetsCollectionViewCell.xib */; };
+		07DC000925E801300051FFA9 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DC000825E801300051FFA9 /* PetViewController.swift */; };
+		07DC000C25E807510051FFA9 /* PetNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DC000B25E807510051FFA9 /* PetNoteViewController.swift */; };
+		07DC000F25E80BE00051FFA9 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DC000E25E80BE00051FFA9 /* AddPetViewController.swift */; };
 		07DCFFE625E7F0560051FFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCFFE525E7F0560051FFA9 /* AppDelegate.swift */; };
 		07DCFFE825E7F0560051FFA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCFFE725E7F0560051FFA9 /* SceneDelegate.swift */; };
 		07DCFFEA25E7F0560051FFA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCFFE925E7F0560051FFA9 /* ViewController.swift */; };
@@ -16,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07DC000325E7FEDE0051FFA9 /* PetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsCollectionViewCell.swift; sourceTree = "<group>"; };
+		07DC000425E7FEDE0051FFA9 /* PetsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetsCollectionViewCell.xib; sourceTree = "<group>"; };
+		07DC000825E801300051FFA9 /* PetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
+		07DC000B25E807510051FFA9 /* PetNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetNoteViewController.swift; sourceTree = "<group>"; };
+		07DC000E25E80BE00051FFA9 /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		07DCFFE225E7F0560051FFA9 /* MyPets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DCFFE525E7F0560051FFA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07DCFFE725E7F0560051FFA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,7 @@
 		07DCFFEE25E7F0570051FFA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07DCFFF125E7F0570051FFA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07DCFFF325E7F0570051FFA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07DCFFFF25E7F2BE0051FFA9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DC000025E7F2BE0051FFA9 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +55,7 @@
 			children = (
 				07DCFFE425E7F0560051FFA9 /* MyPets */,
 				07DCFFE325E7F0560051FFA9 /* Products */,
+				07DCFFFE25E7F2BE0051FFA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +70,44 @@
 		07DCFFE425E7F0560051FFA9 /* MyPets */ = {
 			isa = PBXGroup;
 			children = (
+				07DCFFFC25E7F1700051FFA9 /* cells */,
+				07DCFFFB25E7F16A0051FFA9 /* controllers */,
 				07DCFFE525E7F0560051FFA9 /* AppDelegate.swift */,
 				07DCFFE725E7F0560051FFA9 /* SceneDelegate.swift */,
-				07DCFFE925E7F0560051FFA9 /* ViewController.swift */,
 				07DCFFEB25E7F0560051FFA9 /* Main.storyboard */,
 				07DCFFEE25E7F0570051FFA9 /* Assets.xcassets */,
 				07DCFFF025E7F0570051FFA9 /* LaunchScreen.storyboard */,
 				07DCFFF325E7F0570051FFA9 /* Info.plist */,
 			);
 			path = MyPets;
+			sourceTree = "<group>";
+		};
+		07DCFFFB25E7F16A0051FFA9 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07DCFFE925E7F0560051FFA9 /* ViewController.swift */,
+				07DC000825E801300051FFA9 /* PetViewController.swift */,
+				07DC000B25E807510051FFA9 /* PetNoteViewController.swift */,
+				07DC000E25E80BE00051FFA9 /* AddPetViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		07DCFFFC25E7F1700051FFA9 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				07DC000325E7FEDE0051FFA9 /* PetsCollectionViewCell.swift */,
+				07DC000425E7FEDE0051FFA9 /* PetsCollectionViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		07DCFFFE25E7F2BE0051FFA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07DCFFFF25E7F2BE0051FFA9 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +169,7 @@
 			files = (
 				07DCFFF225E7F0570051FFA9 /* LaunchScreen.storyboard in Resources */,
 				07DCFFEF25E7F0570051FFA9 /* Assets.xcassets in Resources */,
+				07DC000625E7FEDE0051FFA9 /* PetsCollectionViewCell.xib in Resources */,
 				07DCFFED25E7F0560051FFA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +183,11 @@
 			files = (
 				07DCFFEA25E7F0560051FFA9 /* ViewController.swift in Sources */,
 				07DCFFE625E7F0560051FFA9 /* AppDelegate.swift in Sources */,
+				07DC000525E7FEDE0051FFA9 /* PetsCollectionViewCell.swift in Sources */,
+				07DC000F25E80BE00051FFA9 /* AddPetViewController.swift in Sources */,
 				07DCFFE825E7F0560051FFA9 /* SceneDelegate.swift in Sources */,
+				07DC000C25E807510051FFA9 /* PetNoteViewController.swift in Sources */,
+				07DC000925E801300051FFA9 /* PetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
