@@ -9,6 +9,11 @@ import UIKit
 
 class PetViewController: UIViewController {
     
+    static let identifier = String(describing: PetViewController.self)
+    static let nib = UINib(nibName: identifier, bundle: nil)
+    
+    var item: Pet?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

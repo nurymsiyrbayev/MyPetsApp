@@ -17,33 +17,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kdq-h9-sYw">
-                        <rect key="frame" x="25" y="25" width="100" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kdq-h9-sYw">
+                        <rect key="frame" x="10" y="10" width="130" height="130"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-Vv-dAC">
-                        <rect key="frame" x="109" y="0.0" width="41" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                        <state key="normal" title="..."/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-Vv-dAC">
+                        <rect key="frame" x="110" y="5" width="35" height="38"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="edit">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="quickEditPet" destination="gTV-IL-0wX" eventType="touchUpInside" id="1TX-Dg-kwI"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7nc-Vv-dAC" secondAttribute="trailing" constant="5" id="JBv-Sh-S9v"/>
+                <constraint firstItem="Kdq-h9-sYw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Scl-u0-22H"/>
+                <constraint firstAttribute="bottom" secondItem="Kdq-h9-sYw" secondAttribute="bottom" constant="10" id="XaV-qs-su5"/>
+                <constraint firstItem="Kdq-h9-sYw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cwD-Rl-dkR"/>
+                <constraint firstAttribute="trailing" secondItem="Kdq-h9-sYw" secondAttribute="trailing" constant="10" id="f77-ua-XYg"/>
+                <constraint firstItem="7nc-Vv-dAC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="m2X-a0-xDx"/>
+            </constraints>
             <size key="customSize" width="169" height="175"/>
             <connections>
                 <outlet property="PetImageView" destination="Kdq-h9-sYw" id="j6c-Yd-Bvj"/>
                 <outlet property="QuickEditButton" destination="7nc-Vv-dAC" id="9OO-V0-loh"/>
+                <outlet property="petImageView" destination="Kdq-h9-sYw" id="Krh-OL-W9K"/>
+                <outlet property="quickEditButton" destination="7nc-Vv-dAC" id="lR6-WW-Izz"/>
             </connections>
             <point key="canvasLocation" x="223.18840579710147" y="86.383928571428569"/>
         </collectionViewCell>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="M2k-HD-8N0">
-            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="Button"/>
-            <point key="canvasLocation" x="-4" y="20"/>
-        </button>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
