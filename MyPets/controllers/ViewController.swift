@@ -17,16 +17,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var addPetButton: UINavigationItem!
     
     let pets = [Pet](arrayLiteral:
-    Pet(Name: "Nock", MecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: nil),
-    Pet(Name: "Nock", MecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: nil))
+    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog")),
+    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog")),
+    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "cat")),
+    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog")),
+    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "cat"))
+    )
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        shopCollectionConfigure()
+        configure()
+        petsCollectionConfigure()
+        
     }
     
-    func shopCollectionConfigure(){
-        petsCollectionView.backgroundColor = .yellow
+    func configure() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 231.0/255.0, green: 247.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 231.0/255.0, green: 247.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        petsCollectionView.backgroundColor  = UIColor(red: 231.0/255.0, green: 247.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    }
+    
+    func petsCollectionConfigure(){
         petsCollectionView.delegate = self
         petsCollectionView.dataSource = self
         petsCollectionView.register(PetsCollectionViewCell.nib, forCellWithReuseIdentifier: PetsCollectionViewCell.identifier)
@@ -55,7 +66,7 @@ extension ViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: PetViewController.identifier) as! PetViewController
-            vc.item = self.pets[indexPath.item]
+        vc.item = self.pets[indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
         }
     
@@ -63,9 +74,10 @@ extension ViewController: UICollectionViewDataSource{
 
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout{
+extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSide = UIScreen.main.bounds.width/2 - 30
+        let cellSide = UIScreen.main.bounds.width/2
+//        print(cellSide)
         return CGSize(width: cellSide, height: cellSide)
     }
 }

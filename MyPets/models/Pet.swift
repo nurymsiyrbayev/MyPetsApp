@@ -8,9 +8,14 @@ import Foundation
 import UIKit
 
 struct Pet{
-    let Name: String?
-    let MecicalId: String?
+    let name: String?
+    let mecicalId: String?
     var weigth: Double?
     let birthDate: Date?
     var image: UIImage?
+    var note: [Note]?
+}
+
+struct Note{
+    let text: String
 }
