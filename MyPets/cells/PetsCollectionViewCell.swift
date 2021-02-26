@@ -37,6 +37,7 @@ class PetsCollectionViewCell: UICollectionViewCell {
         petImageView.layer.cornerRadius = petImageView.frame.height/2
         petNameLabel.text = item.name
         
+        
     }
     
 }

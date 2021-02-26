@@ -20,6 +20,8 @@
 		07DCFFED25E7F0560051FFA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DCFFEB25E7F0560051FFA9 /* Main.storyboard */; };
 		07DCFFEF25E7F0570051FFA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07DCFFEE25E7F0570051FFA9 /* Assets.xcassets */; };
 		07DCFFF225E7F0570051FFA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DCFFF025E7F0570051FFA9 /* LaunchScreen.storyboard */; };
+		07DDA37825E98543005B0827 /* MyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDA37725E98543005B0827 /* MyClass.swift */; };
+		07DDA37B25E9AD1E005B0827 /* GoWalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDA37A25E9AD1E005B0827 /* GoWalkViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		07DCFFF125E7F0570051FFA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07DCFFF325E7F0570051FFA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07DCFFFF25E7F2BE0051FFA9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		07DDA37725E98543005B0827 /* MyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClass.swift; sourceTree = "<group>"; };
+		07DDA37A25E9AD1E005B0827 /* GoWalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoWalkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				07DC001225E80FBF0051FFA9 /* Pet.swift */,
+				07DDA37725E98543005B0827 /* MyClass.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 				07DC000825E801300051FFA9 /* PetViewController.swift */,
 				07DC000B25E807510051FFA9 /* PetNoteViewController.swift */,
 				07DC000E25E80BE00051FFA9 /* AddPetViewController.swift */,
+				07DDA37A25E9AD1E005B0827 /* GoWalkViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -194,8 +200,10 @@
 			files = (
 				07DCFFEA25E7F0560051FFA9 /* ViewController.swift in Sources */,
 				07DCFFE625E7F0560051FFA9 /* AppDelegate.swift in Sources */,
+				07DDA37825E98543005B0827 /* MyClass.swift in Sources */,
 				07DC000525E7FEDE0051FFA9 /* PetsCollectionViewCell.swift in Sources */,
 				07DC000F25E80BE00051FFA9 /* AddPetViewController.swift in Sources */,
+				07DDA37B25E9AD1E005B0827 /* GoWalkViewController.swift in Sources */,
 				07DCFFE825E7F0560051FFA9 /* SceneDelegate.swift in Sources */,
 				07DC001325E80FBF0051FFA9 /* Pet.swift in Sources */,
 				07DC000C25E807510051FFA9 /* PetNoteViewController.swift in Sources */,

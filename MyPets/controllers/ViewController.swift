@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddPetViewControllerDelegate:class {
+    func addItem(_ item: Pet)
+}
+
 class ViewController: UIViewController {
     
     static let identifier = String(describing: ViewController.self)
@@ -16,19 +20,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var addPetButton: UINavigationItem!
     
-    let pets = [Pet](arrayLiteral:
-    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog")),
-    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog")),
-    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "cat")),
-    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog")),
-    Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "cat"))
-    )
+    var pets = [Pet]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         petsCollectionConfigure()
-        
+        pets.append(Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog"), note: [Note]()))
     }
     
     func configure() {
@@ -47,10 +45,12 @@ class ViewController: UIViewController {
     
     @IBAction func addPet(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(identifier: AddPetViewController.identifier) as! AddPetViewController
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
+
 
 extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,6 +70,28 @@ extension ViewController: UICollectionViewDataSource{
             navigationController?.pushViewController(vc, animated: true)
         }
     
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        return configureContextMenu(indexPath.item)
+    }
+    
+    func configureContextMenu(_ index: Int) -> UIContextMenuConfiguration {
+        let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil){ (action) -> UIMenu? in
+            
+            let delete = UIAction(title: "Remove", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil, attributes: .destructive, state: .off){_ in
+                self.pets.remove(at: index)
+                self.petsCollectionView.reloadData()
+            }
+            
+//            let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil"), identifier: nil, discoverabilityTitle: nil, state: .off){_ in
+//                self.petsCollectionView.reloadData()
+//            }
+            
+            return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [delete])
+        }
+        
+        return context
+    }
     
 
 }
@@ -77,8 +99,13 @@ extension ViewController: UICollectionViewDataSource{
 extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSide = UIScreen.main.bounds.width/2
-//        print(cellSide)
         return CGSize(width: cellSide, height: cellSide)
     }
 }
 
+extension ViewController: AddPetViewControllerDelegate{
+    func addItem(_ item: Pet) {
+        self.pets.append(item)
+        self.petsCollectionView.reloadData()
+    }
+}
