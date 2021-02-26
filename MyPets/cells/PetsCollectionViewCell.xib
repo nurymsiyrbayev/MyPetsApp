@@ -40,6 +40,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" red="0.70588235294117641" green="0.84705882352941175" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Kdq-h9-sYw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="9Qx-SN-uM4"/>
                 <constraint firstAttribute="bottom" secondItem="Kdq-h9-sYw" secondAttribute="bottom" constant="20" id="GNi-Bd-HyH"/>
