@@ -7,23 +7,18 @@
 
 import Foundation
 
-class MyClass {
-    static private(set) var characterArray: [Character] = []
-
-    init() {
-        let defaults = UserDefaults.standard
-
-        MyClass.characterArray = defaults.array(forKey: "characterArray") as? [Character] ?? [Character]()
-    }
-
-    func saveDefaults() {
-        let defaults = UserDefaults.standard
-
-        defaults.set(MyClass.characterArray, forKey: "characterArray") // Error occurs here
-    }
-
-    func doStuff() {
-        let character = Character("字")
-        MyClass.characterArray.append(character)
+class PetsSingleton {
+    var pets = [Pet]()
+    
+    static var shared: PetsSingleton = {
+            let instance = PetsSingleton()
+            return instance
+        }()
+    
+    private init() {}
+    
+    func addNewPet(_ item: Pet){
+        pets.append(item)
     }
 }
+

@@ -9,13 +9,19 @@ import UIKit
 
 struct Pet{
     let name: String?
-    let mecicalId: String?
+    var mecicalId: String?
     var weigth: Double?
     let birthDate: Date?
     var image: UIImage?
-    var note: [Note]?
+    var note: [Note]
+    var goWalkHistory : [WalkThePet?]
 }
 
 struct Note{
-    let text: String
+    var text: String?
+}
+
+struct WalkThePet {
+    let timeCount: Double?
+    let walkDate: Date?
 }
