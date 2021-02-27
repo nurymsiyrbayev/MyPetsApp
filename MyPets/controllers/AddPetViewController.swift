@@ -54,7 +54,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate{
            !medicalId.isEmpty,
            weigth>0 {
             
-            let pet = Pet(name: name, mecicalId: medicalId, weigth: weigth, birthDate: birthDatePicker.date, image: UIImage(named: selectedValue), note: nil)
+            let pet = Pet(name: name, mecicalId: medicalId, weigth: weigth, birthDate: birthDatePicker.date, image: UIImage(named: selectedValue), note: [Note](), goWalkHistory: [WalkThePet]())
             
             delegate?.addItem(pet)
             self.navigationController?.popViewController(animated: true)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072EA6E525EA537E00DD273B /* GoWalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072EA6E325EA537E00DD273B /* GoWalkTableViewCell.swift */; };
+		072EA6E625EA537E00DD273B /* GoWalkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072EA6E425EA537E00DD273B /* GoWalkTableViewCell.xib */; };
 		07DC000025E7F2BE0051FFA9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DCFFFF25E7F2BE0051FFA9 /* MapKit.framework */; };
 		07DC000525E7FEDE0051FFA9 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DC000325E7FEDE0051FFA9 /* PetsCollectionViewCell.swift */; };
 		07DC000625E7FEDE0051FFA9 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07DC000425E7FEDE0051FFA9 /* PetsCollectionViewCell.xib */; };
@@ -22,9 +24,13 @@
 		07DCFFF225E7F0570051FFA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DCFFF025E7F0570051FFA9 /* LaunchScreen.storyboard */; };
 		07DDA37825E98543005B0827 /* MyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDA37725E98543005B0827 /* MyClass.swift */; };
 		07DDA37B25E9AD1E005B0827 /* GoWalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDA37A25E9AD1E005B0827 /* GoWalkViewController.swift */; };
+		07DDA38025E9B8B2005B0827 /* PetNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDA37E25E9B8B2005B0827 /* PetNoteTableViewCell.swift */; };
+		07DDA38125E9B8B2005B0827 /* PetNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07DDA37F25E9B8B2005B0827 /* PetNoteTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		072EA6E325EA537E00DD273B /* GoWalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoWalkTableViewCell.swift; sourceTree = "<group>"; };
+		072EA6E425EA537E00DD273B /* GoWalkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoWalkTableViewCell.xib; sourceTree = "<group>"; };
 		07DC000325E7FEDE0051FFA9 /* PetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsCollectionViewCell.swift; sourceTree = "<group>"; };
 		07DC000425E7FEDE0051FFA9 /* PetsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetsCollectionViewCell.xib; sourceTree = "<group>"; };
 		07DC000825E801300051FFA9 /* PetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +48,8 @@
 		07DCFFFF25E7F2BE0051FFA9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		07DDA37725E98543005B0827 /* MyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClass.swift; sourceTree = "<group>"; };
 		07DDA37A25E9AD1E005B0827 /* GoWalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoWalkViewController.swift; sourceTree = "<group>"; };
+		07DDA37E25E9B8B2005B0827 /* PetNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetNoteTableViewCell.swift; sourceTree = "<group>"; };
+		07DDA37F25E9B8B2005B0827 /* PetNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetNoteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,10 @@
 			children = (
 				07DC000325E7FEDE0051FFA9 /* PetsCollectionViewCell.swift */,
 				07DC000425E7FEDE0051FFA9 /* PetsCollectionViewCell.xib */,
+				07DDA37E25E9B8B2005B0827 /* PetNoteTableViewCell.swift */,
+				07DDA37F25E9B8B2005B0827 /* PetNoteTableViewCell.xib */,
+				072EA6E325EA537E00DD273B /* GoWalkTableViewCell.swift */,
+				072EA6E425EA537E00DD273B /* GoWalkTableViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -186,7 +198,9 @@
 			files = (
 				07DCFFF225E7F0570051FFA9 /* LaunchScreen.storyboard in Resources */,
 				07DCFFEF25E7F0570051FFA9 /* Assets.xcassets in Resources */,
+				072EA6E625EA537E00DD273B /* GoWalkTableViewCell.xib in Resources */,
 				07DC000625E7FEDE0051FFA9 /* PetsCollectionViewCell.xib in Resources */,
+				07DDA38125E9B8B2005B0827 /* PetNoteTableViewCell.xib in Resources */,
 				07DCFFED25E7F0560051FFA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				072EA6E525EA537E00DD273B /* GoWalkTableViewCell.swift in Sources */,
 				07DCFFEA25E7F0560051FFA9 /* ViewController.swift in Sources */,
 				07DCFFE625E7F0560051FFA9 /* AppDelegate.swift in Sources */,
 				07DDA37825E98543005B0827 /* MyClass.swift in Sources */,
@@ -207,6 +222,7 @@
 				07DCFFE825E7F0560051FFA9 /* SceneDelegate.swift in Sources */,
 				07DC001325E80FBF0051FFA9 /* Pet.swift in Sources */,
 				07DC000C25E807510051FFA9 /* PetNoteViewController.swift in Sources */,
+				07DDA38025E9B8B2005B0827 /* PetNoteTableViewCell.swift in Sources */,
 				07DC000925E801300051FFA9 /* PetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

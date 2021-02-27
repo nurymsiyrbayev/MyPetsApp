@@ -11,6 +11,11 @@ protocol AddPetViewControllerDelegate:class {
     func addItem(_ item: Pet)
 }
 
+protocol PetViewControllerDelegate:class {
+    func removeNoteItemFromPet(_ item: Pet,_ index: Int)
+    func savePetItem(_ item: Pet, _ index: Int)
+}
+
 class ViewController: UIViewController {
     
     static let identifier = String(describing: ViewController.self)
@@ -26,7 +31,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         configure()
         petsCollectionConfigure()
-        pets.append(Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog"), note: [Note]()))
+        pets.append(
+            Pet(name: "Nock", mecicalId: "0120302", weigth: 34.0, birthDate: Date(), image: UIImage(named: "dog"), note: [Note](arrayLiteral: Note(text: "Do something"),Note(text: "Teach for aport")), goWalkHistory: [WalkThePet]())
+        )
     }
     
     func configure() {
@@ -66,6 +73,8 @@ extension ViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: PetViewController.identifier) as! PetViewController
+        vc.delegate = self
+        vc.index = indexPath.item
         vc.item = self.pets[indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -107,5 +116,18 @@ extension ViewController: AddPetViewControllerDelegate{
     func addItem(_ item: Pet) {
         self.pets.append(item)
         self.petsCollectionView.reloadData()
+    }
+}
+
+extension ViewController: PetViewControllerDelegate{
+    func savePetItem(_ item: Pet, _ index: Int) {
+        self.pets[index] = item
+        print(item)
+        print(index)
+        petsCollectionView.reloadData()
+    }
+    
+    func removeNoteItemFromPet(_ item: Pet,_ index: Int) {
+        self.pets.insert(item, at: index)
     }
 }

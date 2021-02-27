@@ -15,7 +15,10 @@ class GoWalkViewController: UIViewController {
     @IBOutlet weak var startTimerButton: UIButton!
     @IBOutlet weak var stopTimerButton: UIButton!
     @IBOutlet weak var resetTimerButton: UIButton!
+    @IBOutlet weak var goWalkHistoryView: UITableView!
     
+    var walkThePetHistory = [WalkThePet]()
+    weak var delegate: GoWalkViewControllerDelegate?
     var isTimeRunning: Bool?
     var timer = Timer()
     var stopWatchCounter = 0.0
@@ -23,15 +26,32 @@ class GoWalkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configuration()
+        goWalkHistoryViewConfigure()
+    }
+    
+    func goWalkHistoryViewConfigure() {
+        goWalkHistoryView.backgroundColor =  UIColor(red: 231.0/255.0, green: 247.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        goWalkHistoryView.delegate = self
+        goWalkHistoryView.dataSource = self
+        goWalkHistoryView.register(GoWalkTableViewCell.nib, forCellReuseIdentifier: GoWalkTableViewCell.identifier)
     }
     
     func configuration() {
+        self.view.backgroundColor = UIColor(red: 231.0/255.0, green: 247.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        
         stopWatchTime.text = "00:00:00.0"
-        stopWatchTime.text = ""
         
         startTimerButton.layer.cornerRadius = startTimerButton.frame.height/2
         stopTimerButton.layer.cornerRadius = stopTimerButton.frame.height/2
         resetTimerButton.layer.cornerRadius = resetTimerButton.frame.height/2
+        
+        startTimerButton.isEnabled = true
+        resetTimerButton.isEnabled = false
+        stopTimerButton.isEnabled = false
+        
+        startTimerButton.alpha = 1.0
+        resetTimerButton.alpha = 0.5
+        stopTimerButton.alpha = 0.5
     }
     
     @IBAction func startDidTap(_ sender: Any) {
@@ -63,6 +83,8 @@ class GoWalkViewController: UIViewController {
     }
     
     @IBAction func resetDidTap(_ sender: Any) {
+        print(stopWatchCounter)
+        saveTime(stopWatchCounter)
         timer.invalidate()
         isTimeRunning = false
         stopWatchCounter = 0.0
@@ -75,6 +97,17 @@ class GoWalkViewController: UIViewController {
         startTimerButton.alpha = 1.0
         resetTimerButton.alpha = 0.5
         stopTimerButton.alpha = 0.5
+        
+    }
+    
+    func saveTime(_ timeCount: Double?) {
+        if let count = timeCount, count > 0{
+            walkThePetHistory.append(WalkThePet(timeCount: count, walkDate: Date()))
+            goWalkHistoryView.reloadData()
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.saveWalkThePet(walkThePetHistory)
     }
     
     @objc func runTimer(){
@@ -100,4 +133,19 @@ class GoWalkViewController: UIViewController {
         
         stopWatchTime.text = "\(hour):\(minuteText):\(secondText).\(decisecond)"
     }
+}
+
+extension GoWalkViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return walkThePetHistory.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = goWalkHistoryView.dequeueReusableCell(withIdentifier: GoWalkTableViewCell.identifier, for: indexPath) as! GoWalkTableViewCell
+        cell.item = self.walkThePetHistory[indexPath.row]
+        cell.configuration()
+            return cell
+    }
+    
+    
 }
