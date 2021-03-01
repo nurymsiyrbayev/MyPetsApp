@@ -122,8 +122,6 @@ extension ViewController: AddPetViewControllerDelegate{
 extension ViewController: PetViewControllerDelegate{
     func savePetItem(_ item: Pet, _ index: Int) {
         self.pets[index] = item
-        print(item)
-        print(index)
         petsCollectionView.reloadData()
     }
     

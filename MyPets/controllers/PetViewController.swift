@@ -33,6 +33,7 @@ class PetViewController: UIViewController {
     @IBOutlet weak var petNoteTableView: UITableView!
     @IBOutlet weak var petViewSegmentController: UISegmentedControl!
     @IBOutlet weak var addNewNoteButton: UIButton!
+    @IBOutlet weak var cancelEditButton: UIButton!
     
     var item: Pet?
     var index: Int?
@@ -49,6 +50,7 @@ class PetViewController: UIViewController {
         vc.walkThePetHistory = item?.goWalkHistory as! [WalkThePet]
         self.navigationController?.show(vc, sender: sender)
     }
+    
     @IBAction func swicthSegment(_ sender: AnyObject) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -62,28 +64,31 @@ class PetViewController: UIViewController {
     
     @IBAction func saveButtonAction(_ sender: Any) {
         saveButton.isHidden = true
+        cancelEditButton.isHidden = true
         editButton.isHidden = false
         if let weight = Double(weigtText.text ?? "0.0"),
            let medicalId = medicalIdText.text,
            !medicalId.isEmpty,
            weight>0{
-            print(weight)
-            print(medicalId)
             item?.weigth = weight
             item?.mecicalId = medicalId
-            guard let pet = item, item != nil,
-                  let index = self.index, self.index != nil
-            else {
-                return
-            }
-            delegate?.savePetItem(pet, index)
-            configuration()
         }
-        
-        
+        configuration()
     }
+    
+    @IBAction func cancelEditAction(_ sender: Any) {
+        saveButton.isHidden = true
+        cancelEditButton.isHidden = true
+        editButton.isHidden = false
+        medicalIdText.isHidden = true
+        weigtText.isHidden = true
+        petMedicalIdLabel.isHidden = false
+        petWeight.isHidden = false
+    }
+    
     @IBAction func editAction(_ sender: Any) {
         saveButton.isHidden = false
+        cancelEditButton.isHidden = false
         editButton.isHidden = true
         medicalIdText.text = petMedicalIdLabel.text
         weigtText.text = petWeight.text
@@ -99,6 +104,20 @@ class PetViewController: UIViewController {
         configuration()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let pet = item, item != nil,
+              let index = self.index, self.index != nil
+        else {
+            return
+        }
+        saveItem(pet,index)
+        
+    }
+    
+    func saveItem(_ item: Pet,_ index: Int) {
+        delegate?.savePetItem(item, index)
+    }
+    
     func petTableViewConfigure() {
         petNoteTableView.delegate = self
         petNoteTableView.dataSource = self
@@ -106,8 +125,14 @@ class PetViewController: UIViewController {
     }
     
     func hidePetInformationView() {
+        saveButton.isHidden = true
+        medicalIdText.isHidden = true
+        weigtText.isHidden = true
+        petMedicalIdLabel.isHidden = false
+        petWeight.isHidden = false
         petNoteTableView.isHidden = false
         addNewNoteButton.isHidden = false
+        cancelEditButton.isHidden = true
         petWeight.isHidden = true
         editButton.isHidden = true
         birthDateLabel.isHidden = true
@@ -120,7 +145,7 @@ class PetViewController: UIViewController {
         addNewNoteButton.isHidden = true
         weigtText.isHidden = true
         medicalIdText.isHidden = true
-        
+        cancelEditButton.isHidden = true
         birthDateLabel.isHidden = false
         petWeight.isHidden = false
         editButton.isHidden = false
@@ -134,7 +159,10 @@ class PetViewController: UIViewController {
         petNoteTableView.backgroundColor = UIColor(red: 231.0/255.0, green: 247.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         addNewNoteButton.backgroundColor = .systemTeal
         editButton.backgroundColor = .systemTeal
+        saveButton.setTitleColor(.systemTeal, for: .normal)
+        
         saveButton.isHidden = true
+        cancelEditButton.isHidden = true
         
         petNameLabel.text = self.item?.name
         petWeight.text = "\(self.item?.weigth ?? 0.0)"

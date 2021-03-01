@@ -181,6 +181,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1p-Kb-KYp">
+                                <rect key="frame" x="20" y="823" width="39" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="6du-gT-nZh"/>
+                                    <constraint firstAttribute="width" constant="39" id="W6D-pv-T8v"/>
+                                </constraints>
+                                <state key="normal">
+                                    <imageReference key="image" image="nosign" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelEditAction:" destination="Phl-mh-sHg" eventType="touchUpInside" id="XJK-hK-yC9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aIN-xH-iVb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -189,6 +202,7 @@
                             <constraint firstItem="SXV-s5-o8s" firstAttribute="top" secondItem="16o-zd-obz" secondAttribute="bottom" constant="8" id="1nK-q7-3yT"/>
                             <constraint firstItem="FY2-5c-xvK" firstAttribute="top" secondItem="9FY-hr-oQK" secondAttribute="top" constant="308" id="23j-Kz-VSu"/>
                             <constraint firstItem="FY2-5c-xvK" firstAttribute="leading" secondItem="aIN-xH-iVb" secondAttribute="leading" id="50D-tv-VBu"/>
+                            <constraint firstItem="aIN-xH-iVb" firstAttribute="bottom" secondItem="V1p-Kb-KYp" secondAttribute="bottom" id="651-Hf-EOv"/>
                             <constraint firstItem="ttU-33-OqO" firstAttribute="centerX" secondItem="9FY-hr-oQK" secondAttribute="centerX" id="7cu-ya-V2g"/>
                             <constraint firstItem="2Vc-6x-PH2" firstAttribute="leading" secondItem="aIN-xH-iVb" secondAttribute="leading" constant="20" id="AA4-Gc-kTC"/>
                             <constraint firstItem="1Ha-Tn-tfM" firstAttribute="top" secondItem="aIN-xH-iVb" secondAttribute="top" constant="48" id="BKz-3u-OEt"/>
@@ -197,6 +211,7 @@
                             <constraint firstItem="aIN-xH-iVb" firstAttribute="trailing" secondItem="16o-zd-obz" secondAttribute="trailing" constant="20" id="Gjw-5q-jnE"/>
                             <constraint firstItem="1Ha-Tn-tfM" firstAttribute="centerX" secondItem="9FY-hr-oQK" secondAttribute="centerX" id="JqX-LR-RFD"/>
                             <constraint firstItem="aIN-xH-iVb" firstAttribute="trailing" secondItem="Dhx-rs-NDM" secondAttribute="trailing" constant="20" id="N4a-td-iPR"/>
+                            <constraint firstItem="V1p-Kb-KYp" firstAttribute="leading" secondItem="aIN-xH-iVb" secondAttribute="leading" constant="20" id="O0W-CB-GBY"/>
                             <constraint firstItem="aIN-xH-iVb" firstAttribute="trailing" secondItem="MlR-FJ-bwQ" secondAttribute="trailing" constant="20" id="PPR-MT-6Ll"/>
                             <constraint firstItem="rHk-QK-oBQ" firstAttribute="centerX" secondItem="9FY-hr-oQK" secondAttribute="centerX" id="Pg6-Qo-F8y"/>
                             <constraint firstItem="aIN-xH-iVb" firstAttribute="trailing" secondItem="rHk-QK-oBQ" secondAttribute="trailing" constant="20" id="Rk1-6C-ASK"/>
@@ -228,9 +243,7 @@
                                 <rect key="frame" x="368" y="9" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
-                                </state>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveButtonAction:" destination="Phl-mh-sHg" eventType="touchUpInside" id="KYM-7a-GRL"/>
                                 </connections>
@@ -241,6 +254,7 @@
                         <outlet property="GoWalkThePetButton" destination="ttU-33-OqO" id="rkf-G8-myo"/>
                         <outlet property="addNewNoteButton" destination="6Wd-nJ-btI" id="wpY-U1-ntf"/>
                         <outlet property="birthDateLabel" destination="SXV-s5-o8s" id="MWn-40-94p"/>
+                        <outlet property="cancelEditButton" destination="V1p-Kb-KYp" id="Rv2-Be-aks"/>
                         <outlet property="editButton" destination="KbT-jR-afb" id="SVW-XU-Vkv"/>
                         <outlet property="medicalIdText" destination="MlR-FJ-bwQ" id="xzJ-Dr-z14"/>
                         <outlet property="petImageView" destination="1Ha-Tn-tfM" id="8Dq-z2-eaJ"/>
@@ -463,6 +477,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="nosign" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
