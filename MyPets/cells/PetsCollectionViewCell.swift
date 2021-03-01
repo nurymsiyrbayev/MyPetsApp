@@ -13,11 +13,6 @@ class PetsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var petImageView: UIImageView!
-    @IBOutlet weak var quickEditButton: UIButton!
-
-    @IBAction func quickEditPet(){
-        
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +22,6 @@ class PetsCollectionViewCell: UICollectionViewCell {
     func configure(_ item: Pet) {
         self.contentView.backgroundColor = UIColor(red: 180/255.0, green: 216/255, blue: 238/255, alpha: 1.0)
         self.bringSubviewToFront(petNameLabel)
-        self.bringSubviewToFront(quickEditButton)
         self.sendSubviewToBack(petImageView)
         self.backgroundColor = .systemGray6
         self.backgroundView?.largeContentImage = item.image

@@ -83,7 +83,6 @@ class GoWalkViewController: UIViewController {
     }
     
     @IBAction func resetDidTap(_ sender: Any) {
-        print(stopWatchCounter)
         saveTime(stopWatchCounter)
         timer.invalidate()
         isTimeRunning = false

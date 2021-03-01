@@ -60,7 +60,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate{
             self.navigationController?.popViewController(animated: true)
             
         }else {
-            print("Add Somthing")
+            print("Eror")
         }
     }
     
